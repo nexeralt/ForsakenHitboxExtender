@@ -21,7 +21,7 @@ if (game:GetService("Players").LocalPlayer.Character and game:GetService("Player
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = velocity
 end
 until tick() - start > tonumber(time) or emergency_stop == true
-if emergency_stop == true
+if emergency_stop == true then
 emergency_stop = false
 end
 end
