@@ -11,6 +11,9 @@ function lolz:ExtendHitbox(studs, time)
 local distance = StudsIntoPower(studs)
 local start = tick()
 local connection = nil
+if getgenv().emergency_stop == true then
+getgenv().emergency_stop = false
+end
 repeat game:GetService("RunService").Heartbeat:Wait()
 local velocity = nil
 while not (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Parent and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Parent) do
