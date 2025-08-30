@@ -1,5 +1,7 @@
 local lolz = {}
-local emergency_stop = false
+if getgenv().emergency_stop == nil or not getgenv().emergency_stop then
+getgenv().emergency_stop = false
+end
 
 function StudsIntoPower(studs)
 return (studs * 6)
@@ -20,14 +22,14 @@ game:GetService("RunService").RenderStepped:Wait()
 if (game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Parent and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Parent) then
 game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Velocity = velocity
 end
-until tick() - start > tonumber(time) or emergency_stop == true
-if emergency_stop == true then
-emergency_stop = false
+until tick() - start > tonumber(time) or getgenv().emergency_stop == true
+if getgenv().emergency_stop == true then
+getgenv().emergency_stop = false
 end
 end
 
 function lolz:StopExtendingHitbox()
-emergency_stop = true
+getgenv().emergency_stop = true
 end
 
 return lolz
